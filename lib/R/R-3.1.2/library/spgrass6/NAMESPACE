@@ -1,0 +1,23 @@
+import(sp)
+import(XML)
+importFrom(utils, packageDescription, read.table)
+importFrom(stats, runif, na.omit)
+importFrom(methods, slot, as)
+#import(rgdal)
+
+export(gmeta, getLocationProj, gmeta2grd, gmeta6)
+export(execGRASS, doGRASS, parseGRASS, getXMLencoding, setXMLencoding)
+export(initGRASS, get.GIS_LOCK, set.GIS_LOCK, unset.GIS_LOCK, unlink_.gislock)
+export(readRAST, writeRAST, readRAST6, writeRAST6)
+export(readVECT, writeVECT, vInfo, vColumns, vDataCount, vect2neigh, readVECT6, writeVECT6)
+export(set.ignore.stderrOption, get.ignore.stderrOption, set.useGDALOption,
+ get.useGDALOption, set.stop_on_no_flags_parasOption,
+ get.stop_on_no_flags_parasOption, set.pluginOption, get.pluginOption,
+ set.echoCmdOption, get.echoCmdOption, get.useInternOption, 
+ set.useInternOption, get.legacyExecOption, set.legacyExecOption,
+ get.defaultFlagsOption, set.defaultFlagsOption,
+ get.suppressEchoCmdInFuncOption, set.suppressEchoCmdInFuncOption)
+
+S3method(print, gmeta)
+S3method(print, GRASS_interface_desc)
+

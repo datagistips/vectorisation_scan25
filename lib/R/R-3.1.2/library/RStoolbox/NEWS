@@ -1,0 +1,93 @@
+RStoolbox 0.1.4
+=====================================
+New:
+* new function `validateMap()` for assessing map accuracy separately from model fitting, e.g. after majority or MMU filtering
+* new function `getValidation()` to extract specific validation results of superClass objects (proposed by James Duffy)
+* new spectral index NDVIc (proposed by Jeff Evans)
+* new argument scaleFactor for `spectralIndices()` for calculation of EVI/EVI2 based on scaled reflectance values. 
+* implemented dark object subtraction radCor(..,method='sdos') for Landsat 8 data (@BayAludra, #4)
+
+Changes:
+* superClass based on polygons now considers only pixels which have their center coordinate within a polygon  
+* rasterCVA now returns angles from 0 to 360° instead of 0:45 by quadrant (reported by Martin Wegmann)
+* improved dark object DN estimation based on maximum slope of the histogram in `estimateHaze` (@BayAludra, #4)
+
+Fixes:
+* superClass failed when neither valData or trainPartition was specified. regression introduced in 0.1.3 (reported by Anna Stephani)
+* spectralIndices valid value range of EVI/EVI2 now [-1,1]
+* radCor returned smallest integer instead of NA for some NA pixels
+* fix 'sdos' for non-contiguous bands in radCor (@BayAludra, #4)
+
+
+RStoolbox 0.1.3
+=====================================
+New:
+* new logical argument `predict` for superClass. Disables prediction of full raster (validation is still conducted).
+* new generic predict() function for superClass objects. Useful to separate model training and prediction. 
+* new example data set (landcover training polygons) for lsat example data under /extdata/trainingPolygons.rds 
+
+Fixes:
+* fix histMatch for single layers (affected also 'ihs' pan-sharpening)
+* fix superClass validation sampling for factors (character based factors could lead to wrong factor conversions and wrong validation results)
+* improved handling of of training polygons with overlaps and shared borders in superClass
+* improved checks and error messages for insufficient training polygons
+
+RStoolbox 0.1.2
+=====================================
+New:
+New model for superClass: maximum likelihood classification (model = "mlc")
+
+Fixes:
+* Restrict calculation of EVI/EVI2 to reflectance data (#3)
+* Enforce valid value ranges in radCor: radiance: [0,+Inf], reflectance: [0,1]. Includes a new argument `clamp` to turn this on or off (on by default).
+
+RStoolbox 0.1.1
+=====================================
+Added kernlab to suggested packages to be able to test \donttest{} examples
+
+RStoolbox 0.1.0
+=====================================
+Initial release to CRAN (2015-09-05) with the following functions: 
+ * classifyQA()
+ * cloudMask()
+ * cloudShadowMask()
+ * coregisterImages()
+ * decodeQA()
+ * encodeQA()
+ * estimateHaze()
+ * fortify.raster()
+ * fCover()
+ * getMeta()
+ * ggR()
+ * ggRGB()
+ * histMatch()
+ * ImageMetaData()
+ * normImage()
+ * panSharpen()
+ * pifMatch()
+ * radCor()
+ * rasterCVA()
+ * rasterEntropy()
+ * rasterPCA()
+ * readEE()
+ * readMeta()
+ * readRSTBX()
+ * readSLI()
+ * rescaleImage()
+ * rsOpts()
+ * sam()
+ * saveRSTBX()
+ * spectralIndices()
+ * stackMeta()
+ * superClass()
+ * tasseledCap()
+ * topCor()
+ * unsuperClass()
+ * writeSLI() 
+ 
+Included example data sets: 
+* data(srtm)
+* data(lsat)
+* data(rlogo)
+
+

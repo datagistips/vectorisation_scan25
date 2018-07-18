@@ -1,0 +1,10 @@
+ext = qgisExtent("933303,6370889 : 933844,6371258")
+ext = qgisExtent("933173,6370888 : 933534,6371134") # bleu non détecté
+# ext= qgisExtent("932000,6370089 : 934739,6371960") # zone large
+ext=qgisExtent("935526,6368591 : 936743,6369423") # autre zone
+ext=qgisExtent("953431,6297811 : 957290,6300447")
+ext=qgisExtent("953778,6297942 : 956350,6299699") # verdon
+ext=qgisExtent("959782,6297505 : 960122,6297737")
+ext=qgisExtent("931686,6377731 : 932707,6378385") # surdétection
+ext=qgisExtent("935396,6274251 : 936467,6274973") # exemple
+ext=qgisExtent("944410,6259012 : 946271,6260268") # sur le caramy, ciblage des pixels noirs

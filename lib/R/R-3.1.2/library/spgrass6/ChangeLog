@@ -1,0 +1,105 @@
+2015-06-28 20:56  rsbivand
+
+	* DESCRIPTION, NAMESPACE: CRAN
+	  _R_CHECK_CODE_USAGE_WITH_ONLY_BASE_ATTACHED_=true NAMESPACE tidy
+
+2015-01-31 13:36  rsbivand
+
+	* DESCRIPTION: tidy
+
+2015-01-29 18:18  rsbivand
+
+	* DESCRIPTION, R/options.R: tidy
+
+2015-01-29 13:21  rkrug
+
+	* R/bin_link.R, R/vect_link.R: Introduced several tryCatch() to
+	  delete files after error
+	  
+	  * based on
+	  http://permalink.gmane.org/gmane.comp.gis.grass.stats/26
+	  similar potential problems were identified and code encapsulated
+	  in
+	  tryCatch blocks.
+
+2015-01-29 12:57  rkrug
+
+	* R/vect_link.R: Backport Fix
+	  http://permalink.gmane.org/gmane.comp.gis.grass.stats/26
+	  
+	  * was reported for spgrass7 but also would apply to spgrass6
+
+2015-01-29 11:33  rkrug
+
+	* NAMESPACE, R/bin_link.R, R/initGRASS.R, R/spgrass6.R,
+	  R/vect_link.R, man/gmeta6.Rd, man/initGRASS.Rd, man/readRAST6.Rd,
+	  man/readVECT6.Rd, man/spgrass6.Rd: Add naming scheme compatible
+	  with spgrass7 but keep backward compatibility
+	  
+	  * added aliases as followed:
+	  readRAST == readRAST6
+	  writeRAST == writeRAST6
+	  readVECT == readVECT6
+	  writeVECT6 == writeVECT6
+	  gmeta6 == gmeta
+	  
+	  * added documentation for aliases and changed examples
+	  and manual to refer to the aliases.
+	  
+	  * changed internal usage of these functions from the
+	  function names (...6) to the new alias (without 6)
+	  
+	  * class returned from gmeta() is now c("gmeta", "gmeta6")
+	  
+	  * changed function name
+	  print.gmeta6 => print.gmeta
+	  
+	  * Amendet manuals accordingly
+	  
+	  * Removed reference to getStites6 function from manual as
+	  it was removed earlier.
+
+2015-01-29 10:21  rkrug
+
+	* R/AAA.R, R/bin_link.R, R/vect_link.R, R/xml1.R: Cleanup to remove
+	  references to GRASS GIS 7
+	  
+	  * Remove redundant code for GRASS GIS 7.x as execution
+	  of code is blocked for non 6.x GRASS GIS versions.
+
+2015-01-28 14:16  rkrug
+
+	* R/AAA.R, R/initGRASS.R, R/spgrass6.R: Added blocing for spgrass6
+	  and spgrass7 unless correct GRASS GIS version used
+	  
+	  * spgrass6, spgrass: added two internal functions:
+	  .grassVersion(): returns GRASS GIS version used
+	  .compatibleGRASSVersion(gv=.grassVersion()): returns TRUE if
+	  GRASS GIS version
+	  is compatible, FALSE if not. As an attribute, it returns an error
+	  / status
+	  message which can be printed.
+	  
+	  * spgrass6/AAA.R, spgrass7/AAA.R: added check for
+	  .compatibleGRASSVersion() in .onAttach()
+	  which raises error if GRASS GIS version is not compatible. The
+	  result is that the
+	  package can not be loaded in R when running in an incompatible
+	  GRASS GIS version.
+	  
+	  * spgrass6/initGRASS.R, spgrass7/initGRASS.R: added check for
+	  .compatibleGRASSVersion()
+	  which raises error if GRASS GIS version is not compatible and
+	  aborts initGRASS().
+
+2015-01-15 18:10  rsbivand
+
+	* ., .Rbuildignore, DESCRIPTION, NAMESPACE, R, R/AAA.R,
+	  R/bin_link.R, R/initGRASS.R, R/options.R, R/spgrass6.R,
+	  R/vect_link.R, R/xml1.R, inst, inst/CITATION, inst/ChangeLog,
+	  inst/doc, inst/doc/OSGeo_vol1_GRASS-R.pdf,
+	  inst/doc/spgrass6_0.3.pdf, man, man/execGRASS.Rd, man/gmeta6.Rd,
+	  man/initGRASS.Rd, man/readRAST6.Rd, man/readVECT6.Rd,
+	  man/spgrass6.Rd, oChangeLog, svn2cl.xsl: adding maintenance
+	  spgrass6
+
